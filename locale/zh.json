@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "队列重排",
+    "description": "新增 /queue-reorder 命令与上移/下移控件，用于调整排队中 next-turn 消息的顺序。",
+    "detail": "docs/DETAIL.md"
+  }
+}
