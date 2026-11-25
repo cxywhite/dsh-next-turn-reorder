@@ -22,8 +22,12 @@ capability.
 Reordering is implemented with the public `Inbox.remove` + `Inbox.splice`
 operations. `remove` emits `agent/inbox/discarded`, which the goal-round driver
 can read as a cancellation when the moved message is a pending goal attempt.
+As a mitigation, messages whose source is not a plain `user` (for example a
+goal round prompt) are refused with an error and left in place.
+
 A clean `Inbox.move` primitive (reorder without a discard notification) is
-tracked upstream in the DeepSeek Harness Discussions.
+tracked upstream in the DeepSeek Harness Discussions; once it lands, the
+refusal and the `remove + splice` fallback can be dropped.
 
 ## Development
 

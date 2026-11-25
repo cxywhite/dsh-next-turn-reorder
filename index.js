@@ -28,6 +28,12 @@ export function apply(ctx) {
         return { kind: 'error', text: 'That message is already at the edge of the queue.' }
       }
       const message = queue[from]
+      // Refuse rows whose source the harness still tracks (a goal round prompt,
+      // for example): remove+splice would emit agent/inbox/discarded and read as
+      // a cancellation of that work.
+      if (message.source.kind !== 'user') {
+        return { kind: 'error', text: 'Only user-authored queued messages can be reordered.' }
+      }
       // Stopgap reorder: remove + splice. This emits agent/inbox/discarded, which
       // goal-round-driver may read as a cancellation; a core inbox.move would avoid it.
       inbox.remove(message.id)

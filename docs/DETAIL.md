@@ -14,8 +14,9 @@ Reorder queued `next-turn` messages in a DeepSeek Harness conversation.
 
 - Reordering only applies to the queued (`next-turn`) list; steered
   (`next-step`) input cannot be reordered.
-- The plugin reorders through the public `Inbox.remove` + `Inbox.splice`
-  operations. `remove` emits an `agent/inbox/discarded` event, which the
-  goal-round driver may interpret as a cancellation when the moved message is a
-  pending goal attempt. A clean `Inbox.move` primitive is proposed upstream in
-  the DeepSeek Harness Discussions.
+- Messages whose source is not a plain `user` (for example a goal round prompt)
+  are refused and left in place, because the `remove + splice` fallback would
+  emit `agent/inbox/discarded`, which the goal-round driver reads as a
+  cancellation.
+- A clean `Inbox.move` primitive is proposed upstream in the DeepSeek Harness
+  Discussions; once it lands, the refusal and the fallback can be dropped.

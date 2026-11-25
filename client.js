@@ -18,7 +18,7 @@ window.__ModuleLoader__.load({
           const { useSession, useProjection } = props
           const sessionId = useSession(session => session.sessionId)
           const inbox = useProjection('inbox')
-          const queue = inbox?.['next-turn'] ?? []
+          const queue = (inbox?.['next-turn'] ?? []).filter(message => message.source.kind === 'user')
           const [busy, setBusy] = useState(false)
           if (queue.length < 2) return null
           const move = (index, direction) => {
