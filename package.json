@@ -1,5 +1,5 @@
 {
-  "name": "dsh-queue-reorder",
+  "name": "dsh-next-turn-reorder",
   "version": "0.1.0",
   "description": "Reorder queued next-turn messages in DeepSeek Harness",
   "type": "module",

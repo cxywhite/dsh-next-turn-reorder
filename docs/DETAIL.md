@@ -1,10 +1,10 @@
-# Queue reorder
+# Next-turn reorder
 
 Reorder queued `next-turn` messages in a DeepSeek Harness conversation.
 
 ## Usage
 
-- Type `/queue-reorder <position|id> up|down` in the composer. `position` is a
+- Type `/next-turn-reorder <position|id> up|down` in the composer. `position` is a
   0-based index in the queued list; an id moves the matching message. When a
   token is all digits it is treated as a position.
 - When at least two messages are queued, a reorder strip appears in the input

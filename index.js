@@ -1,13 +1,13 @@
-/** Host half of the queue-reorder bundle: registers the /queue-reorder command. */
+/** Host half of the next-turn-reorder bundle: registers the /next-turn-reorder command. */
 export function apply(ctx) {
   ctx.commands.register({
-    name: 'queue-reorder',
+    name: 'next-turn-reorder',
     description: 'Move a queued next-turn message up or down',
     input: { hint: '<position|id> up|down', attachments: false },
     handler(invocation) {
       const [token, direction] = invocation.rawInput.trim().split(/\s+/)
       if (token === undefined || direction === undefined) {
-        return { kind: 'error', text: 'Usage: /queue-reorder <position|id> up|down' }
+        return { kind: 'error', text: 'Usage: /next-turn-reorder <position|id> up|down' }
       }
       const inbox = invocation.agent.inbox
       const queue = inbox.nextTurn

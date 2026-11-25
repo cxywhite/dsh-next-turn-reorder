@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Queue reorder",
-    "description": "Adds a /queue-reorder command and up/down controls for reordering queued next-turn messages.",
+    "title": "Next-turn reorder",
+    "description": "Adds a /next-turn-reorder command and up/down controls for reordering queued next-turn messages.",
     "detail": "docs/DETAIL.md"
   }
 }

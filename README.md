@@ -1,21 +1,21 @@
-# dsh-queue-reorder
+# dsh-next-turn-reorder
 
 Reorder queued `next-turn` messages in DeepSeek Harness.
 
 A community plugin that fills the gap until the official Harness ships a native
-queue-reorder primitive. See the upstream proposal for the core `Inbox.move`
+next-turn-reorder primitive. See the upstream proposal for the core `Inbox.move`
 capability.
 
 ## What it does
 
-- Registers a host slash command `/queue-reorder <position|id> up|down`.
+- Registers a host slash command `/next-turn-reorder <position|id> up|down`.
 - Adds a reorder strip to the input dock with up/down buttons per queued message.
 
 ## Install
 
 - Local directory: **Plugins** > **Add plugin**, or
-  `dsh plugin --profile <name> add ./dsh-queue-reorder`.
-- npm: `dsh plugin --profile <name> add dsh-queue-reorder`.
+  `dsh plugin --profile <name> add ./dsh-next-turn-reorder`.
+- npm: `dsh plugin --profile <name> add dsh-next-turn-reorder`.
 
 ## Known limitation
 
